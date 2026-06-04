@@ -37,4 +37,4 @@ Terminal sadece kriz anlarını simüle etmekle kalmaz, yatırımcıların finan
 Geliştiren: Azra Özçelik, Veri Bilimi ve Analitiği Öğrencisi.
 Bu proje akademik ve profesyonel bir portfolyo çalışması olarak tasarlanmıştır.
 
-Tüm teknik detaylar, veri bilimi metodolojisi savunması ve yönetim kuruluna sunulan stratejik eylem planı için lütfen proje dosyaları (Files) arasında yer alan **Proje_Raporu_Azra_Ozcelik.docx** belgesini inceleyiniz.
+Tüm teknik detaylar, veri bilimi metodolojisi savunması ve yönetim kuruluna sunulan stratejik eylem planı için lütfen proje dosyaları arasında yer alan [**Proje Raporunu Oku (Tıklayın)**](./Proje_Raporu_Okunabilir.md) bağlantısını inceleyiniz. *(Hocaya teslim edilecek orijinal .docx dosyası da Files kısmında bulunmaktadır).*
