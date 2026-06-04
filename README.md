@@ -1,32 +1,41 @@
-# Genesis Quantum Risk Terminal
+# Genesis Quantum Terminali: Sistemik Risk ve Likidite Krizi Analiz Prototipi
 
-Kripto para piyasalarındaki sistemik riskleri, balina manipülasyonlarını ve likidite krizlerini analiz etmek için geliştirilmiş **Kuantum Stokastik Simülasyon Motoru**.
+**Canlı Uygulama Bağlantısı:** [Genesis Quantum Terminali'ni Başlat](https://azraozclkk.github.io/genesis-risk-terminali)
+**Detaylı Proje Raporu (DOCX):** [Proje_Raporu_Azra_Ozcelik.docx](./Proje_Raporu_Azra_Ozcelik.docx)
 
-## 🚀 Özellikler
+## Projenin Amacı ve Kapsamı
 
-* **Gerçek Tarihsel Veri Entegrasyonu:** Geçmiş 60 günlük Bitcoin piyasa hareketleri temel alınarak, simülasyonların gerçek dünya standartlarında başlatılması.
-* **Kuantum Gelecek Projeksiyonu:** Kullanıcının belirlediği parametrelerle anında hesaplanan ve çizilen 40 günlük Monte Carlo simülasyonu.
-* **Anlık Parametre Yönetimi:** Balina satış baskısı, piyasa derinliği ve volatilite çarpanı gibi risk faktörlerinin gerçek zamanlı ayarlanması.
-* **Düşük Likidite ve Tasfiye Analizi:** Piyasadaki hacimsiz (düşük likidite) bölgelerde meydana gelen domino taşı (tasfiye) etkilerinin grafik üzerinde kırmızı tehlike alanları ile anında tespiti.
-* **Tarihsel Arşiv ve Sözlük:** Bitcoin tarihinin kırılma anlarının görsel simülasyonları ve teknik ekosistem terimlerinin yer aldığı entegre veri bankası.
-* **CSV Dışa Aktarımı:** Tüm simülasyon ve tarihsel modelleme verilerinin akademisyenler ve analistler için 100 satırlık temiz CSV formatında dışa aktarımı.
+Bu proje, kripto para borsalarında meydana gelebilecek olası balina satış baskılarının piyasa derinliğini nasıl etkilediğini ve bunun sonucunda oluşabilecek zincirleme tasfiye (liquidation cascade) senaryolarını analiz etmek amacıyla geliştirilmiş bir veri bilimi prototipidir (Proof of Concept). 
 
-## 🛠 Kullanılan Teknolojiler
+Finansal piyasalarda likidite sağlayıcıların yetersiz kaldığı durumlarda fiyatların nasıl şelale etkisiyle çöktüğü, kaldıraçlı işlemlerin sistem tarafından tasfiye edilmesiyle panik endeksinin nasıl tetiklendiği interaktif bir Kuantum Stokastik Simülatör üzerinden modellenmiştir.
 
-* **Frontend:** HTML5, CSS3, Vanilla JavaScript
-* **Veri Görselleştirme:** Chart.js
-* **Mimari:** Single-Page Application (SPA), Client-Side Processing
+## Veri Bilimi Metodolojisi ve Bilimsel Altyapı
 
-## 🌐 Canlı Demo
+Simülasyon motorumuz, finansal mühendislik standartlarına dayanan çift aşamalı (Hibrit) bir algoritmik mimari üzerine inşa edilmiştir:
 
-Proje GitHub Pages üzerinden tamamen statik olarak, dış bir sunucuya ihtiyaç duymadan yayınlanmaktadır. 
-Projeyi incelemek için: [Genesis Risk Terminali Canlı Demo](https://azraozclkk.github.io/genesis-risk-terminali)
+1. **Gerçek Tarihsel Veri (Geçmiş 60 Gün):** 
+   Sistemin başlangıç verileri, Bitcoin'in 2024 Nisan ve Haziran ayları arasındaki gerçek piyasa kapanış fiyatlarından alınmıştır. Bu bölümde hiçbir tahmini veya yapay veri kullanılmamış olup, tamamen gerçek dünya piyasa koşullarına dayanır.
 
-## 📁 Proje Yapısı
+2. **Gelecek Projeksiyonu (Monte Carlo ve Geometrik Brown Hareketi):** 
+   Gelecekteki 40 günlük kriz projeksiyonlarında "Monte Carlo Simülasyonu" ve "Geometrik Brown Hareketi (GBM)" formülleri uygulanmıştır. Geleceğe dair fiyat sapmaları, istatistiksel geçerliliği olmayan rastgelelik (randomness) yerine, doğrudan "Stokastik Wiener Süreci (Brown Gürültüsü)" kullanılarak hesaplanmıştır.
 
-* `index.html`: Temel iskelet ve sayfa yapısı
-* `styles.css`: Terminal arayüzünün karanlık tema (dark mode) CSS özellikleri
-* `script.js`: Kuantum hesaplama, veri üretimi, DOM etkileşimleri ve Chart.js entegrasyonu
+## Stres Testi Parametreleri (Kontrol Mekanizması)
 
----
-*Bu proje akademik/profesyonel risk yönetimi sunumları için tasarlanmıştır.*
+Terminal üzerinden manipüle edilebilen temel değişkenler şunlardır:
+
+* **Volatilite Çarpanı (v):** Piyasadaki anlık fiyat oynaklığını belirler. Sistemin yüksek dalgalanmalara karşı dayanıklılığını test eder.
+* **Balina Satış Baskısı (w):** Piyasaya aniden sürülen devasa büyüklükteki satım emirlerini temsil eder. Rezervlerin stres testinden geçirilmesini sağlar.
+* **Piyasa Derinliği (d):** Alım emirlerinin toplam gücünü ifade eder. Derinlik azaldığında sistemin devre kesici ihtiyacını ortaya çıkarır.
+
+## Ek Modüller
+
+Terminal sadece kriz anlarını simüle etmekle kalmaz, yatırımcıların finansal okuryazarlığını artırmak amacıyla iki temel arşiv sistemi sunar:
+* **Teknik Sözlük:** 80'den fazla kripto finans terminolojisini açıklayan bilgi bankası.
+* **Tarihsel Arşiv:** Kripto piyasalarındaki kritik kırılma anlarının (Örn: Mt. Gox, FTX İflası) teknik analizlerini içeren dokümantasyon alanı.
+
+## Lisans ve İletişim
+
+Geliştiren: Azra Özçelik, Veri Bilimi ve Analitiği Öğrencisi.
+Bu proje akademik ve profesyonel bir portfolyo çalışması olarak tasarlanmıştır.
+
+Tüm teknik detaylar, metodoloji savunması ve yönetim kuruluna sunulan stratejik eylem planı için lütfen repo kök dizinindeki "Proje_Raporu_Azra_Ozcelik.docx" dosyasını inceleyiniz.
