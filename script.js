@@ -12,6 +12,18 @@
             document.body.appendChild(errDiv);
         });
 
+        // --- Sidebar Toggle Logic ---
+        const toggleBtn = document.getElementById('toggle-sidebar');
+        const sidebar = document.querySelector('.sidebar');
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', () => {
+                sidebar.classList.toggle('collapsed');
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize'));
+                }, 310);
+            });
+        }
+
         // --- Navigation Logic ---
         document.querySelectorAll('input[name="nav"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
