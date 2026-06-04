@@ -24,6 +24,36 @@
             });
         }
 
+        // --- Focus Mode Logic ---
+        const focusBtn = document.getElementById('btn-focus-mode');
+        const contentGrid = document.querySelector('.content-grid');
+        const slidersSection = document.querySelector('.sliders-section');
+        if (focusBtn && contentGrid && slidersSection && sidebar) {
+            focusBtn.addEventListener('click', () => {
+                const isFocus = contentGrid.classList.contains('focus-mode');
+                if (!isFocus) {
+                    // Enter focus mode
+                    sidebar.classList.add('collapsed');
+                    contentGrid.classList.add('focus-mode');
+                    slidersSection.classList.add('focus-mode');
+                    focusBtn.innerText = 'Odak Modundan Çık';
+                    focusBtn.style.backgroundColor = 'var(--card-bg)';
+                    focusBtn.style.border = '1px solid var(--accent-red)';
+                } else {
+                    // Exit focus mode
+                    sidebar.classList.remove('collapsed');
+                    contentGrid.classList.remove('focus-mode');
+                    slidersSection.classList.remove('focus-mode');
+                    focusBtn.innerText = 'Odak Modu (Tam Ekran Grafik)';
+                    focusBtn.style.backgroundColor = 'var(--accent-red)';
+                    focusBtn.style.border = 'none';
+                }
+                setTimeout(() => {
+                    window.dispatchEvent(new Event('resize'));
+                }, 310);
+            });
+        }
+
         // --- Navigation Logic ---
         document.querySelectorAll('input[name="nav"]').forEach(radio => {
             radio.addEventListener('change', (e) => {
